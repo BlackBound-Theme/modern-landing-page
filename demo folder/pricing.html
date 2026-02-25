@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | AI-SaaS Elite</title>
+    <!-- Bootstrap 5.3 CSS -->
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <i class="fas fa-brain text-gradient me-2"></i> AI-SaaS Elite
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars fs-3"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-outline-primary w-100 mb-2 mb-lg-0 me-lg-2" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item mt-2 mt-lg-0">
+                        <a class="btn btn-primary w-100" href="signup.html">Get Started Free</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <section class="py-5 mt-5">
+        <div class="container py-5 mt-4 text-center">
+            <h1 class="display-4 fw-bold mb-3">Simple, transparent pricing</h1>
+            <p class="lead mb-5 text-muted mx-auto" style="max-width: 600px;">No hidden fees. No surprise charges.
+                Choose the plan that best fits your team's needs.</p>
+
+            <!-- PRICING TOGGLE -->
+            <div class="pricing-toggle-container mb-5">
+                <span class="fs-5 fw-bold me-3 text-muted">Monthly</span>
+                <div class="form-check form-switch fs-4 m-0 d-flex align-items-center">
+                    <input class="form-check-input bg-primary ms-0 shadow-none border-0" type="checkbox"
+                        id="pricingToggle">
+                </div>
+                <span class="fs-5 fw-bold ms-3">Yearly <span class="badge bg-success rounded-pill ms-2 fs-6 pb-1">Save
+                        20%</span></span>
+            </div>
+            <!-- /PRICING TOGGLE -->
+
+            <!-- Pricing Cards -->
+            <div class="row g-4 justify-content-center text-start">
+
+                <!-- Starter Tier -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-premium pricing-card h-100 p-4">
+                        <h4 class="fw-bold">Starter</h4>
+                        <p class="text-muted mb-4">Perfect for individuals and freelancers starting out.</p>
+                        <div class="mb-4">
+                            <span class="fs-3 fw-bold">$</span>
+                            <span class="price-display" data-monthly="29" data-yearly="24">29</span>
+                            <span class="text-muted billing-cycle">/mo</span>
+                        </div>
+                        <a href="signup.html" class="btn btn-outline-primary w-100 mb-4 py-2">Get Started</a>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 10,000 AI words/month
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 50 image generations
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Standard templates
+                            </li>
+                            <li class="mb-3 opacity-50"><i class="fas fa-times-circle text-danger me-2"></i> Team
+                                collaboration</li>
+                            <li class="opacity-50"><i class="fas fa-times-circle text-danger me-2"></i> API Access</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pro Tier (Popular) -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-premium pricing-card popular h-100 p-4 bg-white">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <h4 class="fw-bold text-primary">Pro</h4>
+                        <p class="text-muted mb-4">Ideal for growing teams needing more power.</p>
+                        <div class="mb-4">
+                            <span class="fs-3 fw-bold text-primary">$</span>
+                            <span class="price-display text-primary" data-monthly="79" data-yearly="64">79</span>
+                            <span class="text-muted billing-cycle">/mo</span>
+                        </div>
+                        <a href="signup.html" class="btn btn-primary w-100 mb-4 py-2 shadow-sm">Start Free Trial</a>
+                        <ul class="list-unstyled mb-0 fw-medium">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 100,000 AI
+                                words/month</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> 500 image generations
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Advanced analytics
+                            </li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Up to 5 team members
+                            </li>
+                            <li class="opacity-50"><i class="fas fa-times-circle text-danger me-2"></i> Dedicated
+                                Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enterprise Tier -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card card-premium pricing-card h-100 p-4">
+                        <h4 class="fw-bold">Enterprise</h4>
+                        <p class="text-muted mb-4">For large-scale organizations needing custom solutions.</p>
+                        <div class="mb-4">
+                            <span class="fs-3 fw-bold">$</span>
+                            <span class="price-display" data-monthly="299" data-yearly="249">299</span>
+                            <span class="text-muted billing-cycle">/mo</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-outline-primary w-100 mb-4 py-2">Contact Sales</a>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Unlimited AI
+                                generation</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Custom model
+                                finetuning</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Unlimited team
+                                members</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i> Full API Access</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i> 24/7 Dedicated Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand d-flex align-items-center text-white text-decoration-none fs-4 fw-bold mb-3"
+                        href="index.html">
+                        <i class="fas fa-brain text-gradient me-2"></i> AI-SaaS Elite
+                    </a>
+                    <p class="mb-4 pe-lg-5">Next-generation artificial intelligence platform to automate your business
+                        workflow seamlessly.</p>
+                </div>
+                <div class="col-6 col-lg-2 offset-lg-2">
+                    <h5>Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center mt-4">
+                <p class="mb-0">© 2026 AI-SaaS Elite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <!-- Demo Buy Button -->
+    <a href="https://www.codester.com" class="floating-buy-btn" target="_blank" rel="noopener noreferrer">
+        <i class="fas fa-shopping-cart"></i> Buy Now
+    </a>
+
+    <!-- Dark Mode Toggle -->
+    <button id="theme-toggle" class="btn btn-primary rounded-circle position-fixed" style="bottom: 30px; left: 30px; width: 50px; height: 50px; z-index: 9999; box-shadow: 0 4px 15px rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;">
+        <i class="fas fa-moon"></i>
+    </button>
+</body>
+
+</html>
