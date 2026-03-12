@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation | AI-SaaS Elite</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --infinity-gradient: linear-gradient(90deg, #8b5cf6 0%, #d946ef 100%);
+            --primary: #0ea5e9;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 0;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border-bottom: 1px solid var(--border);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            background: var(--infinity-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-top: 10px;
+        }
+
+        section {
+            margin-bottom: 60px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            border-bottom: 2px solid var(--primary);
+            display: inline-block;
+            margin-bottom: 30px;
+            padding-bottom: 5px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        code {
+            background-color: #0f172a;
+            color: #38bdf8;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        pre {
+            background-color: #0f172a;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            border: 1px solid var(--border);
+        }
+
+        pre code {
+            padding: 0;
+            background: none;
+        }
+
+        .folder-structure {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .folder-structure li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .folder-structure li::before {
+            content: "📁";
+            margin-right: 10px;
+        }
+
+        .folder-structure li.file::before {
+            content: "📄";
+        }
+
+        .support-box {
+            background: linear-gradient(135deg, #0ea5e9 0%, #2563eb 100%);
+            padding: 40px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 25px -5px rgba(14, 165, 233, 0.3);
+        }
+
+        .support-box h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>AI-SaaS Elite</h1>
+            <p>User Documentation & Setup Guide</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <section id="setup">
+            <h2>Setup Guide</h2>
+            <div class="card">
+                <p>Welcome to AI-SaaS Elite! This template is designed to be lightweight and fast. To get started, follow these simple steps:</p>
+                <ol>
+                    <li>Extract the package contents to your server or local directory.</li>
+                    <li>The main landing page is <code>index.html</code>.</li>
+                    <li>The application dashboard is <code>dashboard.html</code>.</li>
+                    <li>All styling is handled via <code>assets/css/style.css</code>.</li>
+                    <li>All interactivity is handled via <code>assets/js/main.js</code>.</li>
+                </ol>
+                <p><strong>Hosting:</strong> Simply upload the entire folder to any static hosting provider (GitHub Pages, Netlify, Vercel) or your own FTP server.</p>
+            </div>
+        </section>
+
+        <section id="theme">
+            <h2>Theme Switcher</h2>
+            <div class="card">
+                <p>AI-SaaS Elite comes with a built-in Dark/Light mode toggle. Here's how it works:</p>
+                <ul>
+                    <li><strong>Persistence:</strong> The user's choice is saved in <code>localStorage</code>, so the theme persists across page reloads.</li>
+                    <li><strong>Implementation:</strong> The theme is controlled by a <code>data-theme</code> attribute on the <code>&lt;body&gt;</code> tag.</li>
+                    <li><strong>CSS Variables:</strong> All colors are defined as CSS variables at the root level, making customization extremely easy.</li>
+                </ul>
+                <pre><code>/* Example of theme customization in style.css */
+:root[data-theme="dark"] {
+    --bg-color: #0f172a;
+    --text-color: #ffffff;
+}
+
+:root[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --text-color: #0f172a;
+}</code></pre>
+            </div>
+        </section>
+
+        <section id="folders">
+            <h2>Folder Structure</h2>
+            <div class="card">
+                <ul class="folder-structure">
+                    <li><strong>assets</strong> - Core project assets
+                        <ul class="folder-structure">
+                            <li><strong>css</strong> - Stylesheets (Bootstrap & Custom)</li>
+                            <li><strong>js</strong> - JavaScript files</li>
+                            <li><strong>img</strong> - Images and SVGs</li>
+                        </ul>
+                    </li>
+                    <li class="file">index.html - Main Landing Page</li>
+                    <li class="file">dashboard.html - Application Dashboard</li>
+                    <li class="file">login.html - Authentication</li>
+                    <li class="file">signup.html - Authentication</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="support">
+            <div class="support-box">
+                <h3>Thank You for Choosing AI-SaaS Elite!</h3>
+                <p>We appreciate your support. If you have any questions or need custom modifications, feel free to reach out.</p>
+                <a href="mailto:support@example.com" class="btn">Contact Support</a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AI-SaaS Elite. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
