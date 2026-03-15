@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | AI-SaaS Elite</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="dashboard-body">
+
+    <!-- Mobile Topbar -->
+    <div class="d-lg-none p-3 border-bottom d-flex align-items-center justify-content-between fixed-top z-3 mobile-topbar">
+        <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="index.html">
+            <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 38px;">
+            <span class="brand-text">AI-SaaS Elite</span>
+        </a>
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-secondary rounded-circle theme-toggle" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="sidebarToggle" class="btn btn-light border-0"><i class="fas fa-bars fs-4"></i></button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column pt-lg-4" id="mobileSidebar">
+        <div class="text-end d-lg-none px-3 mb-3">
+            <button class="btn btn-sm btn-light" onclick="document.getElementById('mobileSidebar').classList.remove('show')"><i class="fas fa-times"></i></button>
+        </div>
+        <a class="navbar-brand d-none d-lg-flex align-items-center px-4 mb-4 text-decoration-none" href="index.html">
+            <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 45px;">
+            <span class="brand-text">AI-SaaS Elite</span>
+        </a>
+        <div class="nav flex-column w-100 flex-grow-1">
+            <a href="dashboard.html" class="nav-link active"><i class="fas fa-home me-2"></i> Overview</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-magic me-2"></i> AI Generator</a>
+            <a href="features.html" class="nav-link"><i class="fas fa-star me-2"></i> Features</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-folder-open me-2"></i> Projects</a>
+            <a href="dashboard.html" class="nav-link"><i class="fas fa-chart-line me-2"></i> Analytics</a>
+            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#settingsModal"><i class="fas fa-cog me-2"></i> Settings</a>
+        </div>
+        <div class="mt-auto p-4 border-top">
+            <div class="d-flex align-items-center mb-3">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=80&h=80&fit=crop" alt="User" class="rounded-circle me-3">
+                <div>
+                    <h6 class="mb-0 fw-bold">John Doe</h6>
+                    <small class="text-muted">Pro Plan</small>
+                </div>
+            </div>
+            <a href="login.html" class="btn btn-outline-danger btn-sm w-100"><i class="fas fa-sign-out-alt me-1"></i> Log Out</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-content pt-5 pt-lg-4">
+        <!-- Topbar -->
+        <div class="dashboard-topbar d-flex justify-content-between align-items-center mt-4 mt-lg-0">
+            <div>
+                <h4 class="mb-0 fw-bold">Welcome back, John 👋</h4>
+                <p class="text-muted small mb-0">Here's what is happening with your projects today.</p>
+            </div>
+            <div class="d-none d-md-flex align-items-center">
+                <button class="btn btn-light position-relative rounded-circle theme-toggle me-3" style="width:45px;height:45px;display:flex;align-items:center;justify-content:center;" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <div class="dropdown me-3">
+                    <button class="btn btn-light position-relative rounded-circle dropdown-toggle custom-no-caret" type="button" data-bs-toggle="dropdown" style="width:45px;height:45px;display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 mt-2" style="width:300px;">
+                        <li class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center">
+                            <span class="fw-bold">Notifications</span><span class="badge bg-primary rounded-pill">2</span>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2 border-bottom" href="#">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-primary bg-opacity-10 text-primary rounded-circle p-2 me-3"><i class="fas fa-file-alt"></i></div>
+                                    <div><p class="mb-0 small fw-bold">Report generated</p><small class="text-muted">10 mins ago</small></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-2 border-bottom" href="#">
+                                <div class="d-flex align-items-center">
+                                    <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 me-3"><i class="fas fa-check"></i></div>
+                                    <div><p class="mb-0 small fw-bold">Task completed</p><small class="text-muted">1 hour ago</small></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item text-center text-primary small py-2 fw-bold" href="#">View all alerts</a></li>
+                    </ul>
+                </div>
+                <a href="#" class="btn btn-primary d-flex align-items-center justify-content-center" style="height:45px;padding:0 20px;" onclick="alert('New Project modal would open here.')"><i class="fas fa-plus me-2"></i>New Project</a>
+            </div>
+        </div>
+
+        <!-- Stat Cards -->
+        <div class="row g-4 mb-4">
+            <div class="col-md-4">
+                <div class="card card-premium p-4 border-0">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div><p class="text-muted mb-1 fw-bold text-uppercase small">Words Generated</p><h3 class="fw-bold mb-0">45,231</h3></div>
+                        <div class="feature-icon-box m-0 bg-primary bg-opacity-10 text-primary" style="width:45px;height:45px;font-size:1.2rem;"><i class="fas fa-keyboard"></i></div>
+                    </div>
+                    <p class="mb-0 small text-success fw-bold"><i class="fas fa-arrow-up me-1"></i> 12% from last week</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-premium p-4 border-0">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div><p class="text-muted mb-1 fw-bold text-uppercase small">Active Projects</p><h3 class="fw-bold mb-0">12</h3></div>
+                        <div class="feature-icon-box m-0 bg-success bg-opacity-10 text-success" style="width:45px;height:45px;font-size:1.2rem;"><i class="fas fa-folder"></i></div>
+                    </div>
+                    <p class="mb-0 small text-success fw-bold"><i class="fas fa-arrow-up me-1"></i> 2 new this month</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card card-premium p-4 border-0">
+                    <div class="d-flex justify-content-between align-items-start mb-3">
+                        <div><p class="text-muted mb-1 fw-bold text-uppercase small">Credits Used</p><h3 class="fw-bold mb-0">85%</h3></div>
+                        <div class="feature-icon-box m-0 bg-warning bg-opacity-10 text-warning" style="width:45px;height:45px;font-size:1.2rem;"><i class="fas fa-bolt"></i></div>
+                    </div>
+                    <div class="progress mt-2" style="height: 6px;">
+                        <div class="progress-bar bg-warning" role="progressbar" style="width: 85%" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="row g-4 mb-4">
+            <div class="col-lg-8">
+                <div class="card card-premium p-4 border-0">
+                    <h6 class="fw-bold mb-4">API Token Usage</h6>
+                    <div style="position:relative; height:250px; width:100%;">
+                        <canvas id="apiTokenChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card card-premium p-4 border-0">
+                    <h6 class="fw-bold mb-4">System Resource Load</h6>
+                    <div style="position:relative; height:250px; width:100%;">
+                        <canvas id="resourceLoadChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Chat Section -->
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card card-premium border-0 overflow-hidden" style="display:flex; flex-direction:column; max-height:500px;">
+                    <div class="card-header bg-white border-bottom py-3 d-flex justify-content-between align-items-center" style="flex-shrink:0;">
+                        <h6 class="fw-bold mb-0">Elite AI Assistant</h6>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-1 rounded-pill small">Online</span>
+                    </div>
+                    <div class="chat-container" id="chatContainer" style="flex:1; overflow-y:auto; min-height:0;">
+                        <div class="chat-message ai">
+                            <div class="avatar">AI</div>
+                            <div class="chat-bubble">Hello John! I've analyzed your recent marketing data. Would you like me to generate a summary report?</div>
+                        </div>
+                        <div class="chat-message user">
+                            <div class="avatar">U</div>
+                            <div class="chat-bubble">Yes, please focus on the conversion rates for the last 7 days.</div>
+                        </div>
+                        <div class="chat-message ai">
+                            <div class="avatar">AI</div>
+                            <div class="chat-bubble">Processing... I'm identifying a 15% increase in conversion since our last AI-driven optimization on Tuesday.</div>
+                        </div>
+                    </div>
+
+                    <!-- Media Options Panel -->
+                    <div id="mediaOptionsPanel" class="chat-media-panel d-none">
+                        <div class="d-flex justify-content-around p-2">
+                            <button class="chat-media-btn" onclick="handleMediaOption('camera')"><i class="fas fa-camera text-primary"></i><span>Camera</span></button>
+                            <button class="chat-media-btn" onclick="handleMediaOption('image')"><i class="fas fa-image text-success"></i><span>Image</span></button>
+                            <button class="chat-media-btn" onclick="handleMediaOption('file')"><i class="fas fa-file-alt text-warning"></i><span>File</span></button>
+                            <button class="chat-media-btn" onclick="handleMediaOption('audio')"><i class="fas fa-microphone text-danger"></i><span>Audio</span></button>
+                            <button class="chat-media-btn" onclick="handleMediaOption('gif')"><i class="fas fa-video text-info"></i><span>GIF</span></button>
+                        </div>
+                        <input type="file" id="cameraInput" accept="image/*" capture="camera" class="d-none">
+                        <input type="file" id="imageInput" accept="image/*" class="d-none">
+                        <input type="file" id="fileInput" class="d-none">
+                        <input type="file" id="audioInput" accept="audio/*" class="d-none">
+                    </div>
+
+                    <!-- Link Input Panel -->
+                    <div id="linkInputPanel" class="chat-media-panel d-none">
+                        <div class="d-flex align-items-center gap-2 p-2">
+                            <i class="fas fa-link text-primary flex-shrink-0"></i>
+                            <input type="url" id="linkUrlInput" class="form-control form-control-sm" placeholder="Paste a URL...">
+                            <button class="btn btn-sm btn-primary" onclick="insertLink()">Insert</button>
+                            <button class="btn btn-sm btn-light" onclick="toggleLinkPanel()"><i class="fas fa-times"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Input Area -->
+                    <form id="aiChatForm" class="chat-input-area">
+                        <div class="chat-icon-group">
+                            <button type="button" class="chat-icon-btn" onclick="toggleMediaPanel()" title="Attach media"><i class="fas fa-paperclip"></i></button>
+                            <button type="button" class="chat-icon-btn" onclick="toggleLinkPanel()" title="Insert link"><i class="fas fa-link"></i></button>
+                        </div>
+                        <input type="text" class="chat-input" id="aiChatInput" placeholder="Message Elite AI..." autocomplete="off">
+                        <button type="submit" class="chat-send-btn" aria-label="Send message">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="col-lg-4">
+                <div class="card card-premium border-0 h-100">
+                    <div class="card-header border-bottom py-3">
+                        <h6 class="fw-bold mb-0">Recent Activity</h6>
+                    </div>
+                    <div class="card-body p-0">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item px-4 py-3 border-bottom d-flex align-items-start">
+                                <div class="bg-primary bg-opacity-10 text-primary rounded p-2 me-3"><i class="fas fa-file-alt"></i></div>
+                                <div><h6 class="mb-1 fw-bold fs-6">Marketing Copy Draft</h6><p class="mb-0 text-muted small">Generated 200 words   10 mins ago</p></div>
+                            </li>
+                            <li class="list-group-item px-4 py-3 border-bottom d-flex align-items-start">
+                                <div class="bg-success bg-opacity-10 text-success rounded p-2 me-3"><i class="fas fa-chart-pie"></i></div>
+                                <div><h6 class="mb-1 fw-bold fs-6">Q2 Sales Analysis</h6><p class="mb-0 text-muted small">Data extraction   2 hours ago</p></div>
+                            </li>
+                            <li class="list-group-item px-4 py-3 d-flex align-items-start">
+                                <div class="bg-warning bg-opacity-10 text-warning rounded p-2 me-3"><i class="fas fa-code"></i></div>
+                                <div><h6 class="mb-1 fw-bold fs-6">Python Scraper Script</h6><p class="mb-0 text-muted small">Code generated   Yesterday</p></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card-footer border-top text-center py-3">
+                        <button type="button" class="btn btn-link text-decoration-none fw-bold text-primary small m-0 p-0" onclick="alert('Loading full activity log...')">View All Activity</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow">
+                <div class="modal-header border-bottom-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="settingsModalLabel"><i class="fas fa-cog text-primary me-2"></i>Settings</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body pt-4">
+                    <form>
+                        <div class="mb-3">
+                            <label for="settingsName" class="form-label fw-bold small text-muted">Full Name</label>
+                            <input type="text" class="form-control" id="settingsName" value="John Doe">
+                        </div>
+                        <div class="mb-3">
+                            <label for="settingsEmail" class="form-label fw-bold small text-muted">Email Address</label>
+                            <input type="email" class="form-control" id="settingsEmail" value="john@example.com">
+                        </div>
+                        <div class="mb-4">
+                            <label for="settingsTheme" class="form-label fw-bold small text-muted">Theme Preference</label>
+                            <select class="form-select" id="settingsTheme">
+                                <option value="light">Light Mode</option>
+                                <option value="dark">Dark Mode</option>
+                                <option value="system">System Default</option>
+                            </select>
+                        </div>
+                        <div class="d-grid gap-2">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function toggleMediaPanel() {
+            var p = document.getElementById('mediaOptionsPanel');
+            var l = document.getElementById('linkInputPanel');
+            l.classList.add('d-none');
+            p.classList.toggle('d-none');
+        }
+        function toggleLinkPanel() {
+            var p = document.getElementById('linkInputPanel');
+            var m = document.getElementById('mediaOptionsPanel');
+            m.classList.add('d-none');
+            p.classList.toggle('d-none');
+            if (!p.classList.contains('d-none')) document.getElementById('linkUrlInput').focus();
+        }
+        function insertLink() {
+            var url = document.getElementById('linkUrlInput').value.trim();
+            if (!url) return;
+            var inp = document.getElementById('aiChatInput');
+            inp.value = (inp.value + ' ' + url).trim();
+            document.getElementById('linkUrlInput').value = '';
+            document.getElementById('linkInputPanel').classList.add('d-none');
+            inp.focus();
+        }
+        function handleMediaOption(type) {
+            if (type === 'gif') { alert('GIF picker coming soon!'); return; }
+            var ids = {camera:'cameraInput',image:'imageInput',file:'fileInput',audio:'audioInput'};
+            var el = document.getElementById(ids[type]);
+            if (el) {
+                el.click();
+                el.onchange = function() {
+                    if (this.files && this.files[0]) {
+                        document.getElementById('aiChatInput').value = '[Attached: ' + this.files[0].name + ']';
+                        document.getElementById('mediaOptionsPanel').classList.add('d-none');
+                    }
+                };
+            }
+        }
+    </script>
+</body>
+</html>
