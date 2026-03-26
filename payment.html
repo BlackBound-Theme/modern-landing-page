@@ -1,0 +1,352 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Plan | AI-SaaS Elite</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="payment-page-body">
+    <!-- ═══ DEMO VERSION — NOT FOR RESALE ═══ -->
+    <div class="demo-buy-banner">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="demo-badge">⚠️ DEMO</span>
+            <p><strong>You are viewing a live demo</strong> of AI-SaaS Elite. This demo is for preview purposes only and is not for resale.</p>
+        </div>
+        <a href="https://www.codester.com/items/63361/ai-saas-elite-premium-ai-dashboard" target="_blank" rel="noopener" class="btn-buy-now">
+            🛒 Buy Now on Codester
+        </a>
+    </div>
+    <!-- ═══════════════════════════════════════ -->
+
+
+    <!-- Theme Toggle -->
+    <div class="position-fixed top-0 end-0 m-3 z-3">
+        <button class="btn btn-outline-secondary rounded-circle theme-toggle"
+            style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;"
+            aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+    </div>
+
+    <div class="payment-wrapper">
+        <!-- Back -->
+        <a href="pricing.html" class="btn btn-light position-absolute top-0 start-0 m-4 shadow-sm rounded-pill px-3">
+            <i class="fas fa-arrow-left me-2"></i>Back to Pricing
+        </a>
+
+        <div class="container py-5 mt-5">
+            <div class="row justify-content-center g-4 align-items-start">
+
+                <!-- Left: Order Summary -->
+                <div class="col-lg-5">
+                    <div class="card card-premium border-0 p-4 h-100" id="orderSummaryCard">
+                        <div class="mb-4 d-flex align-items-center gap-3">
+                            <div class="payment-plan-icon rounded-3 d-flex align-items-center justify-content-center"
+                                id="planIconBox" style="width:56px;height:56px;background:var(--infinity-gradient);">
+                                <i class="fas fa-rocket text-white fs-4" id="planIcon"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-black mb-0" id="planTitle">Pro Plan</h5>
+                                <span class="badge bg-primary-subtle text-primary rounded-pill small" id="planBillingBadge">Monthly</span>
+                            </div>
+                        </div>
+
+                        <ul class="list-unstyled mb-4">
+                            <li class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted">Token Quota</span>
+                                <strong id="planTokens">25,000 / month</strong>
+                            </li>
+                            <li class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted">Billing Cycle</span>
+                                <strong id="planCycle">Monthly</strong>
+                            </li>
+                            <li class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted">Token Cost</span>
+                                <strong>50 tokens / image</strong>
+                            </li>
+                            <li class="d-flex justify-content-between py-2 border-bottom">
+                                <span class="text-muted">Images Quota</span>
+                                <strong id="planImages">500 images</strong>
+                            </li>
+                            <li class="d-flex justify-content-between pt-3">
+                                <span class="fw-bold fs-5">Total</span>
+                                <span class="fw-black fs-4 text-gradient" id="planPrice">$79/mo</span>
+                            </li>
+                        </ul>
+
+                        <!-- Features -->
+                        <ul class="list-unstyled mb-0 small">
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Real AI image generation via Hugging Face</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Tokens reset automatically each billing period</li>
+                            <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Cancel or upgrade anytime</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>Instant access after payment</li>
+                        </ul>
+
+                        <!-- Security badges -->
+                        <div class="d-flex align-items-center gap-3 mt-4 pt-3 border-top">
+                            <span class="small text-muted"><i class="fas fa-lock text-success me-1"></i>SSL Secured</span>
+                            <span class="small text-muted"><i class="fas fa-shield-alt text-primary me-1"></i>256-bit Encrypted</span>
+                            <span class="small text-muted"><i class="fas fa-undo text-warning me-1"></i>30-day refund</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Payment Form -->
+                <div class="col-lg-6">
+                    <div class="card card-premium border-0 p-4 p-md-5">
+                        <h4 class="fw-black mb-1">Complete Your Order</h4>
+                        <p class="text-muted small mb-4">Enter your payment details below. Your card will be charged once you click "Pay Now".</p>
+
+                        <!-- Payment Method Tabs -->
+                        <div class="d-flex gap-2 mb-4">
+                            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2">
+                                <i class="fas fa-lock"></i> Start 15-Day Free Trial
+                            </button>
+                            <button class="btn btn-outline-secondary btn-sm px-3 payment-method-btn" id="paypalMethodBtn">
+                                <i class="fab fa-paypal me-1 text-primary"></i>PayPal
+                            </button>
+                        </div>
+
+                        <form id="paymentForm" novalidate>
+                            <h5 class="fw-bold mb-4">Start your 15-Day Free Trial</h5>
+                            <p class="text-muted small mb-4">Your card will not be charged until the 15-day free trial ends. Cancel anytime before then to avoid charges.</p>
+                            
+                            <!-- Name -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Name on Card</label>
+                                <input type="text" class="form-control" id="cardName"
+                                    placeholder="e.g. John Smith" required maxlength="60" autocomplete="cc-name">
+                                <div class="invalid-feedback">Please enter the cardholder name.</div>
+                            </div>
+
+                            <!-- Card Number -->
+                            <div class="mb-3">
+                                <label class="form-label fw-bold small">Card Number</label>
+                                <div class="position-relative">
+                                    <input type="text" class="form-control pe-5" id="cardNumber"
+                                        placeholder="1234 5678 9012 3456" maxlength="19" required
+                                        pattern="[\d\s]{13,19}" autocomplete="cc-number">
+                                    <div class="position-absolute top-50 end-0 translate-middle-y pe-3">
+                                        <i class="fab fa-cc-visa text-primary fs-5" id="cardBrandIcon"></i>
+                                    </div>
+                                </div>
+                                <div class="invalid-feedback">Please enter a valid card number.</div>
+                            </div>
+
+                            <!-- Expiry + CVV -->
+                            <div class="row g-3 mb-3">
+                                <div class="col-6">
+                                    <label class="form-label fw-bold small">Expiry Date</label>
+                                    <input type="text" class="form-control" id="cardExpiry"
+                                        placeholder="MM / YY" maxlength="7" required
+                                        pattern="(0[1-9]|1[0-2])\s?\/\s?[0-9]{2}" autocomplete="cc-exp">
+                                    <div class="invalid-feedback">Invalid expiry date.</div>
+                                </div>
+                                <div class="col-6">
+                                    <label class="form-label fw-bold small">CVV
+                                        <i class="fas fa-question-circle text-muted ms-1" style="cursor:pointer;"
+                                           data-bs-toggle="tooltip" title="3-digit code on back of your card"></i>
+                                    </label>
+                                    <input type="text" class="form-control" id="cardCvv"
+                                        placeholder="•••" maxlength="4" required
+                                        pattern="\d{3,4}" autocomplete="cc-csc">
+                                    <div class="invalid-feedback">Invalid CVV.</div>
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-4">
+                                <label class="form-label fw-bold small">Email (Receipt)</label>
+                                <input type="email" class="form-control" id="paymentEmail"
+                                    placeholder="name@company.com" required maxlength="100" autocomplete="email">
+                                <div class="invalid-feedback">Please enter a valid email.</div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 py-3 fw-bold fs-5 shadow-sm" id="payBtn"
+                                style="background:var(--infinity-gradient);border:none;">
+                                <i class="fas fa-lock me-2"></i>Pay Now — <span id="payBtnPrice">$79</span>
+                            </button>
+                        </form>
+
+                        <!-- PayPal (hidden by default) -->
+                        <div id="paypalSection" class="d-none text-center py-4">
+                            <p class="text-muted mb-4">You'll be redirected to PayPal to complete your payment securely.</p>
+                            <button class="btn btn-warning fw-bold px-5 py-3 rounded-pill" id="paypalBtn">
+                                <i class="fab fa-paypal me-2"></i>Continue with PayPal
+                            </button>
+                        </div>
+
+                        <p class="text-center text-muted small mt-3">
+                            <i class="fas fa-lock me-1 text-success"></i>
+                            Your payment details are never stored on our servers.
+                            <strong>This is a UI demonstration.</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Overlay -->
+    <div id="paymentSuccessOverlay" class="payment-success-overlay d-none">
+        <div class="payment-success-card text-center">
+            <div class="success-icon mb-4">
+                <i class="fas fa-check-circle text-white" style="font-size:4rem;"></i>
+            </div>
+            <h3 class="text-white fw-black mb-2">Payment Successful! 🎉</h3>
+            <p class="text-white opacity-75 mb-4">Your <strong id="successPlanName">Pro</strong> plan is now active.<br>
+                <span id="successTokens">25,000</span> tokens have been added to your account.</p>
+            <div class="spinner-border text-white-50 mb-3" role="status" style="width:1.5rem;height:1.5rem;"></div>
+            <p class="text-white-50 small">Redirecting to dashboard...</p>
+        </div>
+    </div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/token-config.js"></script>
+    <script src="assets/js/ai-engine.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // ─── Security Check: Require Login ─────────────────────────────── //
+        if (localStorage.getItem('aisaas_logged_in') !== 'true') {
+            // Redirect to login if not authenticated
+            sessionStorage.setItem('redirect_after_login', window.location.href);
+            window.location.href = 'login.html';
+        }
+
+        // ── Read plan from URL params ───────────────────────────────────────
+        const params = new URLSearchParams(window.location.search);
+        const planKey = (params.get('plan') || 'pro').toLowerCase();
+        const billing = (params.get('billing') || 'monthly').toLowerCase();
+
+        const cfg = window.PLAN_CONFIG;
+        const plan = cfg.getPlan(planKey);
+        const billingData = cfg.getBilling(planKey, billing);
+
+        // ── Populate order summary ─────────────────────────────────────────
+        document.getElementById('planTitle').textContent      = plan.name + ' Plan';
+        document.getElementById('planIcon').className         = 'fas ' + plan.icon + ' text-white fs-4';
+        document.getElementById('planBillingBadge').textContent = billing.charAt(0).toUpperCase() + billing.slice(1);
+        document.getElementById('planCycle').textContent      = billing.charAt(0).toUpperCase() + billing.slice(1);
+        document.getElementById('planTokens').textContent     = billingData.label + (billing === 'monthly' ? ' / month' : ' / year');
+        document.getElementById('planImages').textContent     = Math.floor(billingData.tokens / 50).toLocaleString() + ' images';
+
+        const displayPrice = billing === 'yearly'
+            ? `$${billingData.price * 12}/yr (billed as $${billingData.price}/mo)`
+            : `$${billingData.price}/mo`;
+        document.getElementById('planPrice').textContent     = displayPrice;
+        document.getElementById('payBtnPrice').textContent   =
+            billing === 'yearly' ? `$${(billingData.price * 12)}` : `$${billingData.price}`;
+
+        // ── Card number formatting ─────────────────────────────────────────
+        const cardNumberEl = document.getElementById('cardNumber');
+        cardNumberEl.addEventListener('input', function () {
+            let v = this.value.replace(/\D/g, '').substring(0, 16);
+            this.value = v.replace(/(.{4})/g, '$1 ').trim();
+            const icon = document.getElementById('cardBrandIcon');
+            if (v.startsWith('4'))       icon.className = 'fab fa-cc-visa text-primary fs-5';
+            else if (v.startsWith('5'))  icon.className = 'fab fa-cc-mastercard text-danger fs-5';
+            else if (v.startsWith('3'))  icon.className = 'fab fa-cc-amex text-info fs-5';
+            else                         icon.className = 'fas fa-credit-card text-secondary fs-5';
+        });
+
+        document.getElementById('cardExpiry').addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '').replace(/^(\d{2})(\d)/, '$1 / $2');
+        });
+        document.getElementById('cardCvv').addEventListener('input', function () {
+            this.value = this.value.replace(/\D/g, '');
+        });
+
+        // ── Payment method tabs ────────────────────────────────────────────
+        // The "Card" button was replaced by "Start 15-Day Free Trial" which acts as the submit button for the form.
+        // The original cardMethodBtn logic is no longer needed as the form is always visible for card payments.
+        // document.getElementById('cardMethodBtn').addEventListener('click', function () {
+        //     document.getElementById('paymentForm').classList.remove('d-none');
+        //     document.getElementById('paypalSection').classList.add('d-none');
+        //     this.classList.replace('btn-outline-secondary', 'btn-primary');
+        //     document.getElementById('paypalMethodBtn').classList.replace('btn-primary', 'btn-outline-secondary');
+        // });
+        document.getElementById('paypalMethodBtn').addEventListener('click', function () {
+            document.getElementById('paymentForm').classList.add('d-none');
+            document.getElementById('paypalSection').classList.remove('d-none');
+            this.classList.replace('btn-outline-secondary', 'btn-primary');
+            // The "Start 15-Day Free Trial" button doesn't have an ID for direct manipulation here,
+            // but it's implicitly handled by showing/hiding the form.
+            // document.getElementById('cardMethodBtn').classList.replace('btn-primary', 'btn-outline-secondary');
+        });
+
+        // ── Submit Payment ─────────────────────────────────────────────────
+        function processPayment() {
+            const btn = document.getElementById('payBtn');
+            btn.innerHTML = '<i class="fas fa-circle-notch fa-spin me-2"></i>Processing...';
+            btn.disabled = true;
+
+            setTimeout(() => {
+                // Activate plan in localStorage
+                const account = window.TokenSystem.activatePlan(planKey, billing);
+
+                // Show success overlay
+                const overlay = document.getElementById('paymentSuccessOverlay');
+                document.getElementById('successPlanName').textContent  = plan.name;
+                document.getElementById('successTokens').textContent    = billingData.tokens.toLocaleString();
+                overlay.classList.remove('d-none');
+
+                // Redirect after 3s
+                setTimeout(() => { window.location.href = 'dashboard.html'; }, 3000);
+            }, 2000);
+        }
+
+        const form = document.getElementById('paymentForm');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            
+            // ─── Realistic Frontend Validation ───────────── //
+            const name = document.getElementById('cardName').value.trim();
+            const number = document.getElementById('cardNumber').value.replace(/\s/g, '');
+            const expiry = document.getElementById('cardExpiry').value.trim();
+            const cvv = document.getElementById('cardCvv').value.trim();
+
+            if (name.split(' ').length < 2) {
+                alert("Card validation failed: Please enter your full name as it appears on the card.");
+                return;
+            }
+            if (!/^\d{16}$/.test(number)) {
+                alert("Card validation failed: Please enter a valid 16-digit credit card number.");
+                return;
+            }
+            if (!/^\d{2}\/\d{2}$/.test(expiry)) {
+                alert("Card validation failed: Expiry must be in MM/YY format.");
+                return;
+            }
+            const [month, year] = expiry.split('/');
+            const currentYear = new Date().getFullYear() % 100;
+            const currentMonth = new Date().getMonth() + 1;
+            if (parseInt(month) < 1 || parseInt(month) > 12 || parseInt(year) < currentYear || (parseInt(year) == currentYear && parseInt(month) < currentMonth)) {
+                alert("Card validation failed: Card has expired or has an invalid date.");
+                return;
+            }
+            if (!/^\d{3,4}$/.test(cvv)) {
+                alert("Card validation failed: CVV must be 3 or 4 digits.");
+                return;
+            }
+
+            // ─── Process Payment ───────────── //
+            // If validation passes, proceed with payment processing
+            processPayment();
+        });
+
+        document.getElementById('paypalBtn').addEventListener('click', processPayment);
+
+        // Tooltips
+        document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el => new bootstrap.Tooltip(el));
+    });
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,223 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing | AI-SaaS Elite</title>
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="has-demo-banner">
+    <!-- ═══ DEMO VERSION — NOT FOR RESALE ═══ -->
+    <div class="demo-buy-banner">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="demo-badge">⚠️ DEMO</span>
+            <p><strong>You are viewing a live demo</strong> of AI-SaaS Elite. This demo is for preview purposes only and is not for resale.</p>
+        </div>
+        <a href="https://www.codester.com/items/63361/ai-saas-elite-premium-ai-dashboard" target="_blank" rel="noopener" class="btn-buy-now">
+            🛒 Buy Now on Codester
+        </a>
+    </div>
+    <!-- ═══════════════════════════════════════ -->
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 45px;">
+                <span class="brand-text">AI-SaaS Elite</span>
+            </a>
+            <div class="d-flex align-items-center me-2 me-lg-0 order-lg-last ms-lg-3">
+                <button class="btn btn-outline-primary rounded-circle theme-toggle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" type="button" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars fs-3"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0"><a class="btn btn-outline-primary w-100 mb-2 mb-lg-0" href="login.html">Login</a></li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0"><a class="btn btn-primary w-100" href="signup.html">Get Started Free</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <section class="py-5 mt-5">
+        <div class="container py-5 mt-4 text-center">
+            <h1 class="display-4 fw-bold mb-3">Simple, transparent pricing</h1>
+            <p class="lead mb-5 text-muted mx-auto" style="max-width: 600px;">No hidden fees. No surprise charges. Each image generation costs <strong>50 tokens</strong>. Plans reset automatically each billing period.</p>
+
+            <!-- Pricing Toggle -->
+            <div class="pricing-toggle-container mb-5">
+                <span class="fs-5 fw-bold me-3 text-muted">Monthly</span>
+                <div class="form-check form-switch fs-4 m-0 d-flex align-items-center">
+                    <input class="form-check-input bg-primary ms-0 shadow-none border-0" type="checkbox" id="pricingToggle">
+                </div>
+                <span class="fs-5 fw-bold ms-3">Yearly <span class="badge bg-success rounded-pill ms-2 fs-6 pb-1">Save 20%</span></span>
+            </div>
+
+            <!-- Pricing Cards -->
+            <div class="row g-4 justify-content-center text-start">
+
+                <!-- Starter -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card card-premium pricing-card h-100 p-4">
+                        <h4 class="fw-bold">Starter</h4>
+                        <p class="text-muted mb-4">Perfect for individuals and freelancers starting out.</p>
+                        <div class="mb-2">
+                            <span class="fs-3 fw-bold">$</span>
+                            <span class="price-display" data-monthly="29" data-yearly="24">29</span>
+                            <span class="text-muted billing-cycle">/mo</span>
+                        </div>
+                        <p class="text-muted small mb-4">
+                            <i class="fas fa-coins text-warning me-1"></i>
+                            <span class="token-label" data-monthly="5,000 tokens/month" data-yearly="6,000 tokens/year">5,000 tokens/month</span>
+                            <span class="text-muted ms-1">(100 images)</span>
+                        </p>
+                        <a href="payment.html?plan=starter&billing=monthly" class="btn btn-outline-primary w-100 mb-4 py-2 plan-cta-btn" data-plan="starter">Start 15-Day Free Trial</a>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>5,000 AI tokens/month</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>~100 image generations</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>All image styles</li>
+                            <li class="mb-3 opacity-50"><i class="fas fa-times-circle text-danger me-2"></i>Team collaboration</li>
+                            <li class="opacity-50"><i class="fas fa-times-circle text-danger me-2"></i>API Access</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Pro (Popular) -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card card-premium pricing-card popular h-100 p-4 bg-white">
+                        <div class="popular-badge">MOST POPULAR</div>
+                        <h4 class="fw-bold text-primary">Pro</h4>
+                        <p class="text-muted mb-4">Ideal for growing teams needing more power.</p>
+                        <div class="mb-2">
+                            <span class="fs-3 fw-bold text-primary">$</span>
+                            <span class="price-display text-primary" data-monthly="79" data-yearly="64">79</span>
+                            <span class="text-muted billing-cycle">/mo</span>
+                        </div>
+                        <p class="text-muted small mb-4">
+                            <i class="fas fa-coins text-warning me-1"></i>
+                            <span class="token-label" data-monthly="25,000 tokens/month" data-yearly="30,000 tokens/year">25,000 tokens/month</span>
+                            <span class="text-muted ms-1">(500 images)</span>
+                        </p>
+                        <a href="payment.html?plan=pro&billing=monthly" class="btn btn-primary w-100 mb-4 py-2 shadow-sm plan-cta-btn" data-plan="pro">Start 15-Day Free Trial</a>
+                        <ul class="list-unstyled mb-0 fw-medium">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>25,000 AI tokens/month</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>~500 image generations</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Advanced analytics</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Up to 5 team members</li>
+                            <li class="opacity-50"><i class="fas fa-times-circle text-danger me-2"></i>Dedicated Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Enterprise -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card card-premium pricing-card h-100 p-4">
+                        <h4 class="fw-bold">Enterprise</h4>
+                        <p class="text-muted mb-4">For large-scale organizations needing custom solutions.</p>
+                        <div class="mb-2">
+                            <span class="fs-3 fw-bold">$</span>
+                            <span class="price-display" data-monthly="299" data-yearly="249">299</span>
+                            <span class="text-muted billing-cycle">/mo</span>
+                        </div>
+                        <p class="text-muted small mb-4">
+                            <i class="fas fa-coins text-warning me-1"></i>
+                            <span class="token-label" data-monthly="100,000 tokens/month" data-yearly="120,000 tokens/year">100,000 tokens/month</span>
+                            <span class="text-muted ms-1">(2,000 images)</span>
+                        </p>
+                        <a href="payment.html?plan=enterprise&billing=monthly" class="btn btn-outline-primary w-100 mb-4 py-2 plan-cta-btn" data-plan="enterprise">Start 15-Day Free Trial</a>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>100,000 tokens/month</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>~2,000 image generations</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Unlimited team members</li>
+                            <li class="mb-3"><i class="fas fa-check-circle text-success me-2"></i>Full API Access</li>
+                            <li><i class="fas fa-check-circle text-success me-2"></i>24/7 Dedicated Support</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Token Explainer -->
+            <div class="card card-premium mt-4 p-4 border-0 text-start mx-auto" style="max-width:700px;">
+                <h5 class="fw-bold mb-3"><i class="fas fa-info-circle text-primary me-2"></i>How the Token System Works</h5>
+                <div class="row g-3">
+                    <div class="col-md-4 text-center">
+                        <div class="feature-icon-box mx-auto mb-2" style="width:50px;height:50px;font-size:1.2rem;"><i class="fas fa-wand-magic-sparkles"></i></div>
+                        <strong class="d-block">1 Image = 50 Tokens</strong>
+                        <small class="text-muted">Each generation deducts 50 tokens from your balance</small>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="feature-icon-box mx-auto mb-2" style="width:50px;height:50px;font-size:1.2rem;"><i class="fas fa-sync"></i></div>
+                        <strong class="d-block">Auto-Reset Monthly</strong>
+                        <small class="text-muted">Tokens refill automatically at the start of each period</small>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="feature-icon-box mx-auto mb-2" style="width:50px;height:50px;font-size:1.2rem;"><i class="fas fa-shield-alt"></i></div>
+                        <strong class="d-block">Payment Gate</strong>
+                        <small class="text-muted">When tokens reach 0, you're prompted to upgrade before continuing</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand d-flex align-items-center text-white text-decoration-none" href="index.html">
+                        <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 40px;">
+                        <span class="brand-text">AI-SaaS Elite</span>
+                    </a>
+                    <p class="mb-4 pe-lg-5">Next-generation AI image generation platform powered by Hugging Face FLUX.</p>
+                </div>
+                <div class="col-6 col-lg-2"><h5>Product</h5><ul class="list-unstyled"><li><a href="features.html">Features</a></li><li><a href="pricing.html">Pricing</a></li></ul></div>
+                <div class="col-6 col-lg-2"><h5>Company</h5><ul class="list-unstyled"><li><a href="about.html">About Us</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+                <div class="col-6 col-lg-2"><h5>Legal</h5><ul class="list-unstyled"><li><a href="terms.html">Terms of Service</a></li><li><a href="privacy.html">Privacy Policy</a></li></ul></div>
+            </div>
+            <hr>
+            <div class="text-center mt-4"><p class="mb-0">© 2026 AI-SaaS Elite. All rights reserved.</p></div>
+        </div>
+    </footer>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/token-config.js"></script>
+    <script src="assets/js/ai-engine.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+    // Update the plan CTA hrefs when billing toggle changes
+    document.addEventListener('DOMContentLoaded', function () {
+        const toggle = document.getElementById('pricingToggle');
+        const tokenLabels = document.querySelectorAll('.token-label');
+
+        function updateLinks() {
+            const billing = toggle && toggle.checked ? 'yearly' : 'monthly';
+            document.querySelectorAll('.plan-cta-btn').forEach(btn => {
+                const plan = btn.getAttribute('data-plan');
+                btn.href = `payment.html?plan=${plan}&billing=${billing}`;
+            });
+            tokenLabels.forEach(el => {
+                el.textContent = billing === 'yearly' ? el.getAttribute('data-yearly') : el.getAttribute('data-monthly');
+            });
+        }
+
+        if (toggle) toggle.addEventListener('change', updateLinks);
+        updateLinks();
+    });
+    </script>
+</body>
+</html>
+
