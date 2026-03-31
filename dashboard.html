@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-SaaS Elite | App Dashboard</title>
+    <meta name="description" content="AI-SaaS Elite App Dashboard with live token system and AI generation pipeline.">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+</head>
+<body class="dashboard-body">
+    <!-- Demo Banner -->
+    <div class="demo-buy-banner">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="demo-badge">⚠️ DEMO</span>
+            <p><strong>You are viewing a live demo</strong> of AI-SaaS Elite. This demo is for preview purposes only and is not for resale.</p>
+        </div>
+
+    </div>
+    <!-- /Demo Banner -->
+
+
+    <!-- Low Token Warning Bar -->
+    <div id="lowTokenWarningBar" class="d-none">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        Low balance! Only <strong><span class="low-token-count">0</span> tokens</strong> remaining.
+        <a href="pricing.html" class="btn btn-dark btn-sm ms-3 rounded-pill px-3 fw-bold">Upgrade Plan</a>
+    </div>
+
+    <!-- Mobile Topbar -->
+    <div class="d-lg-none p-3 border-bottom d-flex align-items-center justify-content-between fixed-top z-3 mobile-topbar">
+        <a class="navbar-brand d-flex align-items-center text-decoration-none m-0" href="index.html">
+            <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 38px;">
+            <span class="brand-text">AI-SaaS Elite</span>
+        </a>
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-sm btn-outline-secondary rounded-circle theme-toggle" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            <button id="sidebarToggle" class="btn btn-light border-0"><i class="fas fa-bars fs-4"></i></button>
+        </div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar d-flex flex-column pt-lg-4 shadow-sm" id="mobileSidebar">
+        <div class="text-end d-lg-none px-3 mb-3">
+            <button class="btn btn-sm btn-light" onclick="document.getElementById('mobileSidebar').classList.remove('show')"><i class="fas fa-times"></i></button>
+        </div>
+        <a class="navbar-brand d-none d-lg-flex align-items-center px-4 mb-4 text-decoration-none" href="index.html">
+            <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 40px;">
+            <span class="brand-text fs-5">AI-SaaS Elite</span>
+        </a>
+
+        <div class="px-4 mb-3">
+            <p class="text-xs fw-bold text-muted text-uppercase letter-spacing-1 mb-2" style="font-size:0.7rem;">Main Menu</p>
+        </div>
+
+        <div class="nav flex-column w-100 flex-grow-1">
+            <a href="dashboard.html" class="nav-link active"><i class="fas fa-columns me-3"></i>AI Kanban</a>
+            <a href="index.html" class="nav-link"><i class="fas fa-home me-3"></i>Landing Page</a>
+            <a href="features.html" class="nav-link"><i class="fas fa-star me-3"></i>Features</a>
+            <a href="pricing.html" class="nav-link"><i class="fas fa-tag me-3"></i>Pricing</a>
+        </div>
+
+        <!-- API Key Settings Panel -->
+        <div class="api-settings-panel">
+            <label><i class="fas fa-key me-1"></i>Hugging Face API Key</label>
+            <div class="input-group api-key-input-group">
+                <input type="password" class="form-control form-control-sm" id="apiKeyInput"
+                    placeholder="hf_..." autocomplete="off">
+                <button class="btn btn-primary btn-sm" id="apiKeySaveBtn">
+                    <i class="fas fa-save me-1"></i>Save
+                </button>
+            </div>
+            <div class="mt-2 d-flex justify-content-between align-items-center">
+                <small class="text-muted" style="font-size:0.7rem;">Saved in browser only</small>
+                <a href="https://huggingface.co/settings/tokens" target="_blank" rel="noopener" class="small text-primary" style="font-size:0.7rem;">Get free key →</a>
+            </div>
+        </div>
+
+        <!-- Sidebar User Panel -->
+        <div class="mt-2 p-4 border-top">
+            <div class="d-flex align-items-center mb-2">
+                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=80&h=80&fit=crop" alt="User" class="rounded-circle me-3 border border-2 border-white shadow-sm">
+                <div>
+                    <h6 class="mb-0 fw-bold fs-6">John Doe</h6>
+                    <small class="text-success fw-bold plan-name-display">Pro Plan</small>
+                </div>
+            </div>
+            <a href="pricing.html" class="btn btn-outline-primary btn-sm w-100 mb-2 fw-bold"><i class="fas fa-arrow-up me-1"></i>Upgrade Plan</a>
+            <a href="login.html" class="btn btn-outline-danger btn-sm w-100 fw-bold"><i class="fas fa-sign-out-alt me-1"></i>Sign Out</a>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="dashboard-content pt-5 pt-lg-0">
+        <!-- Topbar -->
+        <div class="dashboard-topbar d-flex justify-content-between align-items-center mt-4 mt-lg-4 mb-4">
+            <div>
+                <h4 class="mb-1 fw-black">AI Production Studio 🎨</h4>
+                <p class="text-muted small mb-0 fw-medium">Manage your asset generation pipeline and monitor usage.</p>
+            </div>
+            <div class="d-none d-md-flex align-items-center gap-3">
+                <!-- Live Token Badge -->
+                <div class="bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold small d-flex align-items-center gap-2 border border-primary-subtle">
+                    <i class="fas fa-coins text-warning"></i>
+                    <span id="dashTokenBadge" class="token-count-badge">Loading...</span>
+                </div>
+                <button class="btn btn-light rounded-circle theme-toggle shadow-sm" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+                <!-- Notifications -->
+                <div class="dropdown">
+                    <button class="btn btn-light rounded-circle shadow-sm position-relative custom-no-caret" type="button" data-bs-toggle="dropdown" style="width:40px;height:40px;display:flex;align-items:center;justify-content:center;">
+                        <i class="fas fa-bell"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 mt-2" style="width:320px;">
+                        <li class="px-3 py-2 border-bottom d-flex justify-content-between align-items-center bg-light rounded-top">
+                            <span class="fw-bold">Notifications</span><span class="badge bg-primary rounded-pill">3 New</span>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-3 border-bottom custom-dropdown-item" href="#">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="bg-success bg-opacity-10 text-success rounded-circle p-2 mt-1"><i class="fas fa-check-circle"></i></div>
+                                    <div><p class="mb-1 small fw-bold text-wrap">Batch "Q3 Marketing Ads" finished</p><small class="text-muted">2 mins ago</small></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item py-3 border-bottom custom-dropdown-item" href="#">
+                                <div class="d-flex align-items-start gap-3">
+                                    <div class="bg-warning bg-opacity-10 text-warning rounded-circle p-2 mt-1"><i class="fas fa-exclamation-triangle"></i></div>
+                                    <div><p class="mb-1 small fw-bold text-wrap">Low Token Balance Warning</p><small class="text-muted">1 hour ago</small></div>
+                                </div>
+                            </a>
+                        </li>
+                        <li><a class="dropdown-item text-center text-primary small py-2 fw-bold" href="#">Mark all as read</a></li>
+                    </ul>
+                </div>
+                <a href="index.html" class="btn btn-primary fw-bold shadow-sm px-4" style="background: var(--infinity-gradient); border: none;"><i class="fas fa-wand-magic-sparkles me-2"></i>Generate Image</a>
+            </div>
+        </div>
+
+        <div class="row g-4 mb-4">
+            <!-- Token Usage Chart -->
+            <div class="col-lg-8">
+                <div class="card card-premium p-4 border-0 h-100">
+                    <div class="d-flex justify-content-between align-items-center mb-4">
+                        <h5 class="fw-bold mb-0">Token Usage (Last 7 Days)</h5>
+                        <select class="form-select border-0 bg-light fw-bold text-muted w-auto form-select-sm">
+                            <option>This Week</option>
+                            <option>Last Month</option>
+                        </select>
+                    </div>
+                    <div style="position:relative; height:240px; width:100%;">
+                        <canvas id="apiTokenChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Live Quick Stats -->
+            <div class="col-lg-4 d-flex flex-column gap-4">
+                <!-- Dynamic token progress -->
+                <div class="card card-premium p-4 border-0 flex-grow-1" style="background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%); color: white;">
+                    <h6 class="fw-bold opacity-75 mb-3 text-uppercase" style="letter-spacing:1px;font-size:0.7rem;">Token Usage This Period</h6>
+                    <h2 class="display-5 fw-black mb-0">
+                        <span id="dashGenCount">–</span><span class="fs-5 opacity-75" id="dashGenMax">/0</span>
+                    </h2>
+                    <div class="progress mt-auto" style="height: 6px; background: rgba(255,255,255,0.2);">
+                        <div class="progress-bar bg-white" role="progressbar" id="dashGenBar" style="width: 0%"></div>
+                    </div>
+                    <p class="small mt-2 mb-0 opacity-75" id="dashGenPct">0% of period quota used</p>
+                </div>
+                <!-- Plan info -->
+                <div class="card card-premium p-4 border-0 d-flex flex-row align-items-center justify-content-between flex-grow-1">
+                    <div>
+                        <h6 class="fw-bold text-muted mb-1 text-uppercase small" style="letter-spacing:1px;">Current Plan</h6>
+                        <h3 class="fw-black text-dark mb-0 plan-name-display">–</h3>
+                        <a href="pricing.html" class="small text-primary text-decoration-none fw-bold">Upgrade →</a>
+                    </div>
+                    <div class="bg-primary bg-opacity-10 text-primary p-3 rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-crown fs-5"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Task Kanban Board -->
+        <h5 class="fw-bold mb-3 d-flex align-items-center gap-2"><i class="fas fa-layer-group text-primary"></i> Generation Pipeline Tracker</h5>
+        <div class="row g-4 kanban-board overflow-x-auto flex-nowrap pb-2">
+
+            <!-- Queue Column -->
+            <div class="col-12 col-md-6 col-xl-4 min-width-300">
+                <div class="bg-light rounded-4 p-3 h-100 border border-secondary-subtle">
+                    <div class="d-flex justify-content-between align-items-center mb-3 px-1">
+                        <h6 class="fw-bold mb-0 d-flex align-items-center gap-2">
+                            <span class="bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center fs-xs" style="width: 20px; height: 20px;">2</span>
+                            Queue
+                        </h6>
+                        <button class="btn btn-sm text-muted"><i class="fas fa-ellipsis-h"></i></button>
+                    </div>
+                    <div id="kanban-queue" class="kanban-column d-flex flex-column gap-3 min-vh-50">
+                        <div class="kanban-card card border-0 shadow-sm rounded-3 p-3 cursor-grab">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-primary bg-opacity-10 text-primary rounded-pill small fw-bold">Image Gen</span>
+                                <i class="fab fa-dribbble text-muted small"></i>
+                            </div>
+                            <h6 class="fw-bold mb-2 fs-6">E-commerce Winter Sale Banners</h6>
+                            <p class="text-muted small mb-3 text-truncate-2">Generate 5 variants of a cozy winter living room with our new furniture line.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto border-top pt-2">
+                                <div class="d-flex align-items-center gap-1 text-muted small"><i class="fas fa-paperclip"></i> 2 <i class="far fa-comment-alt ms-2"></i> 0</div>
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=60&h=60&fit=crop" class="rounded-circle" width="24" height="24" alt="Assignee">
+                            </div>
+                        </div>
+                        <div class="kanban-card card border-0 shadow-sm rounded-3 p-3 cursor-grab">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-info bg-opacity-10 text-info rounded-pill small fw-bold">Text Copy</span>
+                            </div>
+                            <h6 class="fw-bold mb-2 fs-6">Newsletter Intro Draft</h6>
+                            <p class="text-muted small mb-3 text-truncate-2">Write a 300-word intro for the March newsletter announcing the new AI model.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto border-top pt-2">
+                                <span class="small text-muted fw-bold">0/1 Tasks</span>
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=60&h=60&fit=crop" class="rounded-circle" width="24" height="24" alt="Assignee">
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-light w-100 mt-2 text-muted fw-bold"><i class="fas fa-plus me-1"></i> Add Task</button>
+                </div>
+            </div>
+
+            <!-- In Progress Column -->
+            <div class="col-12 col-md-6 col-xl-4 min-width-300">
+                <div class="bg-light rounded-4 p-3 h-100 border border-primary-subtle" style="background: rgba(43,95,225,0.02) !important;">
+                    <div class="d-flex justify-content-between align-items-center mb-3 px-1">
+                        <h6 class="fw-bold mb-0 d-flex align-items-center gap-2 text-primary">
+                            <span class="bg-primary text-white rounded-circle d-flex align-items-center justify-content-center fs-xs" style="width: 20px; height: 20px;">1</span>
+                            In Progress
+                        </h6>
+                        <span class="spinner-grow spinner-grow-sm text-primary" role="status"></span>
+                    </div>
+                    <div id="kanban-progress" class="kanban-column d-flex flex-column gap-3 min-vh-50">
+                        <div class="kanban-card card border border-primary shadow-sm rounded-3 p-3 cursor-grab position-relative overflow-hidden">
+                            <div class="position-absolute top-0 start-0 w-100 h-100 kanban-processing-overlay" style="background: linear-gradient(90deg, transparent, rgba(139,92,246,0.05), transparent); z-index: 1;"></div>
+                            <div class="position-relative" style="z-index: 2;">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <span class="badge" style="background: var(--infinity-gradient); color: white;">Batch Gen</span>
+                                    <span class="text-primary small fw-bold"><i class="fas fa-sync fa-spin me-1"></i>45%</span>
+                                </div>
+                                <h6 class="fw-bold mb-2 fs-6">Instagram Ad Creatives Batch</h6>
+                                <p class="text-muted small mb-3">Model: FLUX.1-schnell. Generating 50 variations of sneaker product shots.</p>
+                                <div class="progress mb-3" style="height: 6px;">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" style="background: var(--infinity-gradient); width: 45%"></div>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center mt-auto border-top pt-2">
+                                    <span class="small text-muted fw-bold">Started 2m ago</span>
+                                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=60&h=60&fit=crop" class="rounded-circle" width="24" height="24" alt="Assignee">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generated Column -->
+            <div class="col-12 col-md-6 col-xl-4 min-width-300">
+                <div class="bg-light rounded-4 p-3 h-100 border border-success-subtle">
+                    <div class="d-flex justify-content-between align-items-center mb-3 px-1">
+                        <h6 class="fw-bold mb-0 d-flex align-items-center gap-2 text-success">
+                            <span class="bg-success text-white rounded-circle d-flex align-items-center justify-content-center fs-xs" style="width: 20px; height: 20px;"><i class="fas fa-check" style="font-size: 0.6rem;"></i></span>
+                            Generated
+                        </h6>
+                        <button class="btn btn-sm text-muted"><i class="fas fa-ellipsis-h"></i></button>
+                    </div>
+                    <div id="kanban-done" class="kanban-column d-flex flex-column gap-3 min-vh-50">
+                        <div class="kanban-card card border-0 shadow-sm rounded-3 p-3 cursor-grab opacity-75">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <span class="badge bg-success bg-opacity-10 text-success rounded-pill small fw-bold">Image Gen</span>
+                                <i class="fas fa-check-circle text-success small"></i>
+                            </div>
+                            <img src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&h=200&fit=crop" class="img-fluid rounded mb-2" style="height: 80px; object-fit: cover;">
+                            <h6 class="fw-bold mb-1 fs-6 text-decoration-line-through text-muted">Cyberpunk Cityscape Hero</h6>
+                            <p class="text-muted small mb-2 text-truncate-2">Completed high-res render for the main landing page.</p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto border-top pt-2">
+                                <a href="#" class="text-primary small fw-bold text-decoration-none"><i class="fas fa-download me-1"></i>Assets</a>
+                                <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=60&h=60&fit=crop" class="rounded-circle" width="24" height="24" alt="Assignee">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Payment Gate Modal -->
+    <div class="modal fade" id="paymentGateModal" tabindex="-1" aria-labelledby="pgModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="pgModalLabel"><i class="fas fa-coins me-2"></i>You've Used All Your Tokens!</h5>
+                        <p class="mb-0 small opacity-75">Upgrade your plan to continue generating AI images</p>
+                    </div>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <div class="col-md-4"><div class="upgrade-plan-card card border text-center"><div class="mb-2"><i class="fas fa-seedling fs-3 text-secondary"></i></div><h5 class="fw-bold">Starter</h5><p class="text-muted small mb-2">5,000 tokens/mo</p><p class="fw-black fs-4 text-primary mb-3">$29<span class="fs-6 fw-normal text-muted">/mo</span></p><button class="btn btn-outline-primary btn-sm w-100" data-upgrade-plan="starter" data-upgrade-billing="monthly">Select</button></div></div>
+                        <div class="col-md-4"><div class="upgrade-plan-card card border border-primary text-center selected"><div class="mb-2"><span class="badge bg-primary rounded-pill mb-1">POPULAR</span><br><i class="fas fa-rocket fs-3 text-primary"></i></div><h5 class="fw-bold text-primary">Pro</h5><p class="text-muted small mb-2">25,000 tokens/mo</p><p class="fw-black fs-4 text-primary mb-3">$79<span class="fs-6 fw-normal text-muted">/mo</span></p><button class="btn btn-primary btn-sm w-100" data-upgrade-plan="pro" data-upgrade-billing="monthly">Select</button></div></div>
+                        <div class="col-md-4"><div class="upgrade-plan-card card border text-center"><div class="mb-2"><i class="fas fa-building fs-3 text-secondary"></i></div><h5 class="fw-bold">Enterprise</h5><p class="text-muted small mb-2">100,000 tokens/mo</p><p class="fw-black fs-4 text-primary mb-3">$299<span class="fs-6 fw-normal text-muted">/mo</span></p><button class="btn btn-outline-primary btn-sm w-100" data-upgrade-plan="enterprise" data-upgrade-billing="monthly">Select</button></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/token-config.js"></script>
+    <script src="assets/js/ai-engine.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('apiTokenChart');
+            if (ctx) {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                        datasets: [{
+                            label: 'Tokens Used',
+                            data: [4200, 5800, 3100, 8900, 6200, 4500, 7100],
+                            borderColor: '#8b5cf6',
+                            backgroundColor: 'rgba(139, 92, 246, 0.15)',
+                            borderWidth: 3, tension: 0.4, fill: true,
+                            pointBackgroundColor: '#ffffff',
+                            pointBorderColor: '#8b5cf6',
+                            pointBorderWidth: 2, pointRadius: 4, pointHoverRadius: 6
+                        }]
+                    },
+                    options: {
+                        responsive: true, maintainAspectRatio: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: { backgroundColor: '#0f172a', padding: 12, cornerRadius: 8, displayColors: false }
+                        },
+                        scales: {
+                            y: { beginAtZero: true, grid: { color: 'rgba(0,0,0,0.05)', borderDash: [5,5] }, border: { display: false } },
+                            x: { grid: { display: false }, border: { display: false } }
+                        }
+                    }
+                });
+            }
+            if (typeof Sortable !== 'undefined') {
+                const columnOptions = { group: 'kanban', animation: 150, ghostClass: 'kanban-ghost', dragClass: 'kanban-drag' };
+                Sortable.create(document.getElementById('kanban-queue'), columnOptions);
+                Sortable.create(document.getElementById('kanban-progress'), columnOptions);
+                Sortable.create(document.getElementById('kanban-done'), columnOptions);
+            }
+        });
+    </script>
+</body>
+</html>
+
+

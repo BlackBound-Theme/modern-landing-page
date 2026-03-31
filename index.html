@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-SaaS Elite | Next-Gen AI Image Generation Platform</title>
+    <meta name="description" content="AI-SaaS Elite – the premium HTML template for AI SaaS products. Generate stunning images, automate tasks, and analyze data with cutting-edge AI models.">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="has-demo-banner">
+    <!-- Demo Banner -->
+    <div class="demo-buy-banner">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="demo-badge">⚠️ DEMO</span>
+            <p><strong>You are viewing a live demo</strong> of AI-SaaS Elite. This demo is for preview purposes only and is not for resale.</p>
+        </div>
+
+    </div>
+    <!-- /Demo Banner -->
+
+
+    <!-- Low Token Warning Bar (shown by AI engine when tokens < 200) -->
+    <div id="lowTokenWarningBar" class="d-none">
+        <i class="fas fa-exclamation-triangle me-2"></i>
+        Only <span class="low-token-count fw-black">0</span> tokens remaining!
+        <a href="pricing.html" class="btn btn-dark btn-sm ms-3 rounded-pill px-3 fw-bold">Upgrade Now</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 45px;">
+                <span class="brand-text">AI-SaaS Elite</span>
+            </a>
+            <div class="d-flex align-items-center me-2 me-lg-0 order-lg-last ms-lg-3">
+                <button class="btn btn-outline-primary rounded-circle theme-toggle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" type="button" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars fs-3"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="requirements.html">Requirements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-outline-primary w-100 mb-2 mb-lg-0" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a class="btn btn-primary w-100" href="signup.html">Get Started Free</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section – AI Image Generation Workspace -->
+    <section class="hero-section">
+        <div class="hero-bg-shape"></div>
+        <div class="hero-bg-shape-2"></div>
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <!-- Left: Prompt Input Panel -->
+                <div class="col-lg-5 mb-5 mb-lg-0">
+                    <span class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill fw-bold">🚀 v2.0 Now Live – Real AI Image Studio</span>
+                    <h1 class="display-4 fw-black mb-4">Turn Ideas into <span class="text-gradient">Stunning Visuals</span> in Seconds</h1>
+                    <p class="lead mb-5">Describe anything. Our multi-model AI engine instantly generates production-ready images, product mockups, and marketing creatives — powered by Hugging Face FLUX.</p>
+
+                    <!-- Token Badge -->
+                    <div class="d-flex align-items-center gap-3 mb-4">
+                        <div class="bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill fw-bold small d-flex align-items-center gap-2 border border-primary-subtle">
+                            <i class="fas fa-coins text-warning"></i>
+                            <span class="token-count-badge">Loading...</span>
+                        </div>
+                        <a href="pricing.html" class="text-muted small text-decoration-none"><i class="fas fa-arrow-up-right-from-square me-1"></i>Upgrade Plan</a>
+                    </div>
+
+                    <!-- Prompt Panel -->
+                    <div class="hero-prompt-panel glass-effect p-4 mb-4">
+                        <label class="form-label fw-bold small text-muted text-uppercase mb-2">Your Prompt</label>
+                        <textarea class="form-control hero-prompt-input mb-3" id="heroPromptInput" name="prompt" rows="3" placeholder="A futuristic city skyline at dusk, rendered in cyberpunk neon, ultra-realistic 8K..." maxlength="1000" required></textarea>
+                        <div class="row g-2 mb-3">
+                            <div class="col-6">
+                                <select class="form-select form-select-sm" id="heroStyleSelect">
+                                    <option>Photorealistic</option>
+                                    <option>Anime</option>
+                                    <option>Oil Painting</option>
+                                    <option>Pixel Art</option>
+                                </select>
+                            </div>
+                            <div class="col-6">
+                                <select class="form-select form-select-sm" id="heroSizeSelect">
+                                    <option>1024×1024</option>
+                                    <option>1792×1024</option>
+                                    <option>512×512</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary w-100 hero-generate-btn" id="heroGenerateBtn">
+                            <i class="fas fa-wand-magic-sparkles me-2"></i>Generate Image
+                        </button>
+                    </div>
+
+                    <div class="mt-3 text-muted small d-flex align-items-center gap-3">
+                        <span><i class="fas fa-shield-alt text-success me-1"></i>50 tokens per image</span>
+                        <span><i class="fas fa-bolt text-warning me-1"></i>Results in ~8 seconds</span>
+                    </div>
+                </div>
+
+                <!-- Right: Preview Area -->
+                <div class="col-lg-7">
+                    <div class="hero-preview-area glass-effect p-3 position-relative">
+                        <div class="d-flex align-items-center justify-content-between mb-3 px-1">
+                            <div class="d-flex align-items-center gap-2">
+                                <div style="width:12px;height:12px;border-radius:50%;background:#ec4899;"></div>
+                                <div style="width:12px;height:12px;border-radius:50%;background:#f59e0b;"></div>
+                                <div style="width:12px;height:12px;border-radius:50%;background:#22c55e;"></div>
+                            </div>
+                            <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-1 rounded-pill small fw-bold"><i class="fas fa-circle me-1" style="font-size:0.5rem;"></i>AI Engine Ready</span>
+                        </div>
+                        <div class="hero-preview-grid row g-2" id="heroPreviewGrid">
+                            <div class="col-8">
+                                <img id="heroGeneratedOutput" src="https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=800&h=600&fit=crop" alt="AI Generated Preview" class="img-fluid rounded-3 w-100" style="height:260px;object-fit:cover;">
+                            </div>
+                            <div class="col-4 d-flex flex-column gap-2">
+                                <img id="heroGeneratedOutput2" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=300&h=200&fit=crop" alt="AI Generated Abstract Art" class="img-fluid rounded-3" style="height:125px;width:100%;object-fit:cover;">
+                                <img id="heroGeneratedOutput3" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=300&h=200&fit=crop" alt="AI Generated Product Mockup" class="img-fluid rounded-3" style="height:125px;width:100%;object-fit:cover;">
+                            </div>
+                        </div>
+                        <!-- Floating Stats Card -->
+                        <div class="glass-effect position-absolute bottom-0 start-0 m-3 p-3 text-start d-none d-md-block hero-float-card" id="heroFloatStats">
+                            <div class="d-flex align-items-center mb-1 gap-2">
+                                <div class="bg-success rounded-circle" style="width:8px;height:8px;"></div>
+                                <span class="fw-bold small">Generation Complete</span>
+                            </div>
+                            <p class="small mb-0 text-muted"><span id="heroGenTime">–</span> · <span id="heroTokensUsed">50 tokens used</span></p>
+                        </div>
+                        <!-- Model Badge -->
+                        <div class="glass-effect position-absolute top-0 end-0 m-3 px-3 py-2 d-none d-md-flex align-items-center gap-2">
+                            <i class="fas fa-microchip text-gradient"></i>
+                            <span class="small fw-bold">Model: FLUX.1-schnell</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted Logos Bar -->
+    <section class="py-4 border-top border-bottom">
+        <div class="container">
+            <p class="text-center text-muted small fw-bold text-uppercase mb-3 letter-spacing-1">Trusted by teams at</p>
+            <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 opacity-50">
+                <span class="fw-black fs-5" style="color:var(--text-muted)">Notion</span>
+                <span class="fw-black fs-5" style="color:var(--text-muted)">Figma</span>
+                <span class="fw-black fs-5" style="color:var(--text-muted)">Stripe</span>
+                <span class="fw-black fs-5" style="color:var(--text-muted)">Vercel</span>
+                <span class="fw-black fs-5" style="color:var(--text-muted)">Shopify</span>
+                <span class="fw-black fs-5" style="color:var(--text-muted)">HubSpot</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Highlights -->
+    <section id="features" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill fw-bold">Core Capabilities</span>
+                <h2 class="display-6 fw-bold">Everything your creative team needs</h2>
+                <p class="lead mx-auto" style="max-width:600px;">From single image generation to batch campaigns — AI-SaaS Elite handles it all with enterprise-grade reliability.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card card-premium h-100 p-4">
+                        <div class="feature-icon-box"><i class="fas fa-image"></i></div>
+                        <h4>Real AI Image Generation</h4>
+                        <p class="text-muted">Generate photorealistic images directly in your browser using the Hugging Face FLUX API. Just add your API key.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-premium h-100 p-4">
+                        <div class="feature-icon-box"><i class="fas fa-coins"></i></div>
+                        <h4>Token-Based System</h4>
+                        <p class="text-muted">Each image generation costs 50 tokens. Plans include 5k–100k tokens/month with automatic monthly resets.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-premium h-100 p-4">
+                        <div class="feature-icon-box"><i class="fas fa-lock"></i></div>
+                        <h4>Payment Gate System</h4>
+                        <p class="text-muted">When tokens run out, a sleek upgrade modal blocks further generation until a new plan is activated.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-premium h-100 p-4">
+                        <div class="feature-icon-box"><i class="fas fa-chart-pie"></i></div>
+                        <h4>Real-Time Analytics</h4>
+                        <p class="text-muted">Monitor token consumption, generation speed, and quality scores in real time on the live dashboard.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-premium h-100 p-4">
+                        <div class="feature-icon-box"><i class="fas fa-tag"></i></div>
+                        <h4>Flexible Pricing Plans</h4>
+                        <p class="text-muted">Starter, Pro, and Enterprise tiers. Monthly and yearly billing. Save 20% with an annual commitment.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-premium h-100 p-4">
+                        <div class="feature-icon-box"><i class="fas fa-sliders-h"></i></div>
+                        <h4>Style Fine-Tuning</h4>
+                        <p class="text-muted">Choose from Photorealistic, Anime, Oil Painting, or Pixel Art styles. Control image size 512×512 to 1792×1024.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-5">
+                <a href="features.html" class="btn btn-primary btn-lg px-5"><i class="fas fa-arrow-right me-2"></i>View All Features</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <section class="py-5" style="background: linear-gradient(135deg, rgba(139,92,246,0.04) 0%, rgba(236,72,153,0.04) 100%);">
+        <div class="container py-5">
+            <div class="row g-4 text-center mb-6">
+                <div class="col-6 col-md-3"><div class="card card-premium p-4 border-0"><h2 class="fw-black text-gradient mb-1">2.4M+</h2><p class="text-muted small mb-0 fw-bold">Images Generated</p></div></div>
+                <div class="col-6 col-md-3"><div class="card card-premium p-4 border-0"><h2 class="fw-black text-gradient mb-1">14,800+</h2><p class="text-muted small mb-0 fw-bold">Active Teams</p></div></div>
+                <div class="col-6 col-md-3"><div class="card card-premium p-4 border-0"><h2 class="fw-black text-gradient mb-1">99.98%</h2><p class="text-muted small mb-0 fw-bold">Uptime SLA</p></div></div>
+                <div class="col-6 col-md-3"><div class="card card-premium p-4 border-0"><h2 class="fw-black text-gradient mb-1">4.9★</h2><p class="text-muted small mb-0 fw-bold">Average Rating</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5">
+        <div class="container py-5">
+            <div class="cta-section text-center p-5 rounded-4" style="background: var(--infinity-gradient); color: white;">
+                <h2 class="display-6 fw-bold text-white mb-3">Ready to generate your first AI image?</h2>
+                <p class="lead mb-4" style="color: rgba(255,255,255,0.85);">Join 14,800+ teams. Add your free Hugging Face API key and start generating in minutes.</p>
+                <div class="d-flex flex-column flex-sm-row justify-content-center gap-3">
+                    <a href="signup.html" class="btn btn-light btn-lg px-5 fw-bold" style="color: var(--secondary-color);"><i class="fas fa-rocket me-2"></i>Start Free Trial</a>
+                    <a href="dashboard.html" class="btn btn-outline-light btn-lg px-5"><i class="fas fa-eye me-2"></i>View Dashboard</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand d-flex align-items-center text-white text-decoration-none mb-3" href="index.html">
+                        <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 40px;">
+                        <span class="brand-text" style="color:#fff;">AI-SaaS Elite</span>
+                    </a>
+                    <p class="mb-4 pe-lg-5">Next-generation AI image generation platform powered by Hugging Face FLUX. Create, automate, and scale your visual content effortlessly.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="requirements.html">Requirements</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="dashboard.html">Live Demo</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center mt-4">
+                <p class="mb-0">© 2026 AI-SaaS Elite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Gate Modal (non-dismissable) -->
+    <div class="modal fade" id="paymentGateModal" tabindex="-1" aria-labelledby="paymentGateModalLabel">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div>
+                        <h5 class="modal-title" id="paymentGateModalLabel"><i class="fas fa-coins me-2"></i>You've Used All Your Tokens!</h5>
+                        <p class="mb-0 small opacity-75">Choose a plan to continue generating AI images</p>
+                    </div>
+                </div>
+                <div class="modal-body p-4">
+                    <div class="row g-3">
+                        <!-- Starter -->
+                        <div class="col-md-4">
+                            <div class="upgrade-plan-card card border text-center">
+                                <div class="mb-2"><i class="fas fa-seedling fs-3 text-secondary"></i></div>
+                                <h5 class="fw-bold">Starter</h5>
+                                <p class="text-muted small mb-2">5,000 tokens/mo</p>
+                                <p class="fw-black fs-4 text-primary mb-3">$29<span class="fs-6 fw-normal text-muted">/mo</span></p>
+                                <button class="btn btn-outline-primary btn-sm w-100" data-upgrade-plan="starter" data-upgrade-billing="monthly">Select Plan</button>
+                            </div>
+                        </div>
+                        <!-- Pro -->
+                        <div class="col-md-4">
+                            <div class="upgrade-plan-card card border border-primary text-center selected">
+                                <div class="mb-2"><span class="badge bg-primary rounded-pill mb-1">POPULAR</span><br><i class="fas fa-rocket fs-3 text-primary"></i></div>
+                                <h5 class="fw-bold text-primary">Pro</h5>
+                                <p class="text-muted small mb-2">25,000 tokens/mo</p>
+                                <p class="fw-black fs-4 text-primary mb-3">$79<span class="fs-6 fw-normal text-muted">/mo</span></p>
+                                <button class="btn btn-primary btn-sm w-100" data-upgrade-plan="pro" data-upgrade-billing="monthly">Select Plan</button>
+                            </div>
+                        </div>
+                        <!-- Enterprise -->
+                        <div class="col-md-4">
+                            <div class="upgrade-plan-card card border text-center">
+                                <div class="mb-2"><i class="fas fa-building fs-3 text-secondary"></i></div>
+                                <h5 class="fw-bold">Enterprise</h5>
+                                <p class="text-muted small mb-2">100,000 tokens/mo</p>
+                                <p class="fw-black fs-4 text-primary mb-3">$299<span class="fs-6 fw-normal text-muted">/mo</span></p>
+                                <button class="btn btn-outline-primary btn-sm w-100" data-upgrade-plan="enterprise" data-upgrade-billing="monthly">Select Plan</button>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-center text-muted small mt-3 mb-0">
+                        <i class="fas fa-shield-alt text-success me-1"></i>Secure checkout · Cancel anytime · Instant access
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/api-config.js"></script>
+    <script src="assets/js/token-config.js"></script>
+    <script src="assets/js/ai-engine.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
+

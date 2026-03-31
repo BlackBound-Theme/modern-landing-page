@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Requirements | AI-SaaS Elite</title>
+    <meta name="description" content="Technical specifications and API capabilities for the AI-SaaS Elite platform.">
+    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="has-demo-banner">
+    <!-- Demo Banner -->
+    <div class="demo-buy-banner">
+        <div class="d-flex align-items-center gap-3 flex-wrap">
+            <span class="demo-badge">⚠️ DEMO</span>
+            <p><strong>You are viewing a live demo</strong> of AI-SaaS Elite. This demo is for preview purposes only and is not for resale.</p>
+        </div>
+
+    </div>
+    <!-- /Demo Banner -->
+
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg glass-nav fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="index.html">
+                <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 45px;">
+                <span class="brand-text">AI-SaaS Elite</span>
+            </a>
+            <div class="d-flex align-items-center me-2 me-lg-0 order-lg-last ms-lg-3">
+                <button class="btn btn-outline-primary rounded-circle theme-toggle" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;" type="button" aria-label="Toggle Theme"><i class="fas fa-moon"></i></button>
+            </div>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fas fa-bars fs-3"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="requirements.html">Requirements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="pricing.html">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+                    <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
+                        <a class="btn btn-outline-primary w-100 mb-2 mb-lg-0" href="login.html">Login</a>
+                    </li>
+                    <li class="nav-item ms-lg-4 mt-3 mt-lg-0">
+                        <a class="btn btn-primary w-100" href="signup.html">Get Started Free</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="py-5 mt-5">
+        <div class="container py-5 mt-4 text-center">
+            <span class="badge bg-primary bg-opacity-10 text-primary mb-3 px-3 py-2 rounded-pill fw-bold">Developer Docs</span>
+            <h1 class="display-4 fw-black mb-3">Technical <span class="text-gradient">Specifications</span></h1>
+            <p class="lead mb-5 text-muted mx-auto" style="max-width: 700px;">Review the underlying architecture, API documentation, and browser requirements for deploying and utilizing AI-SaaS Elite within your tech stack.</p>
+        </div>
+    </section>
+
+    <!-- Requirements System -->
+    <section class="pb-5 mb-5 border-bottom">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h2 class="fw-bold mb-4">Template Specifications</h2>
+                    <ul class="list-unstyled mb-0 fs-5 text-muted">
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="fab fa-html5 text-primary me-3 fs-3" style="width: 30px; text-align: center;"></i> 
+                            <div><strong class="text-dark d-block">HTML5 & CSS3 Built</strong>Vanilla, modern markup structure.</div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="fab fa-bootstrap text-secondary me-3 fs-3" style="width: 30px; text-align: center; color: var(--secondary-color) !important;"></i> 
+                            <div><strong class="text-dark d-block">Bootstrap 5.3+ Environment</strong>No jQuery. Leverages CSS Grid and Flexbox.</div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="fas fa-paint-brush text-accent me-3 fs-3" style="width: 30px; text-align: center; color: var(--accent-color) !important;"></i> 
+                            <div><strong class="text-dark d-block">Custom CSS Architecture</strong>Uses standard CSS Variables for effortless theming.</div>
+                        </li>
+                        <li class="mb-4 d-flex align-items-center">
+                            <i class="fab fa-js text-warning me-3 fs-3" style="width: 30px; text-align: center;"></i> 
+                            <div><strong class="text-dark d-block">Vanilla JavaScript</strong>Lightning fast interactions without heavy frameworks.</div>
+                        </li>
+                        <li class="d-flex align-items-center">
+                            <i class="far fa-chart-bar text-success me-3 fs-3" style="width: 30px; text-align: center;"></i> 
+                            <div><strong class="text-dark d-block">Integrated Libraries</strong>Chart.js for analytics, Sortable.js for Kanban board.</div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Browser Support Grid -->
+                <div class="col-lg-6">
+                    <div class="card card-premium glass-effect p-5 border-0 bg-light">
+                        <h4 class="fw-bold mb-4 text-center">Browser Support</h4>
+                        <div class="row g-4 text-center">
+                            <div class="col-6 col-sm-4">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border h-100">
+                                    <i class="fab fa-chrome fs-1 text-muted mb-2"></i>
+                                    <span class="d-block fw-bold small">Chrome</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill mt-2">Latest</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border h-100">
+                                    <i class="fab fa-firefox fs-1 text-muted mb-2"></i>
+                                    <span class="d-block fw-bold small">Firefox</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill mt-2">Latest</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border h-100">
+                                    <i class="fab fa-safari fs-1 text-muted mb-2"></i>
+                                    <span class="d-block fw-bold small">Safari</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill mt-2">14.0+</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border h-100">
+                                    <i class="fab fa-edge fs-1 text-muted mb-2"></i>
+                                    <span class="d-block fw-bold small">Edge</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill mt-2">Latest</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border h-100">
+                                    <i class="fas fa-mobile-alt fs-1 text-muted mb-2"></i>
+                                    <span class="d-block fw-bold small">iOS Safari</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill mt-2">14.0+</span>
+                                </div>
+                            </div>
+                            <div class="col-6 col-sm-4">
+                                <div class="p-3 bg-white rounded-3 shadow-sm border h-100">
+                                    <i class="fab fa-android fs-1 text-muted mb-2"></i>
+                                    <span class="d-block fw-bold small">Chrome/Android</span>
+                                    <span class="badge bg-success bg-opacity-10 text-success rounded-pill mt-2">Latest</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Examples -->
+    <section class="py-5 my-5">
+        <div class="container">
+            <div class="row align-items-center flex-row-reverse">
+                <div class="col-lg-5 mb-5 mb-lg-0 ps-lg-5">
+                    <h2 class="fw-bold mb-4">REST API Integration Focus</h2>
+                    <p class="text-muted mb-4 fs-5">Hook up the visually stunning AI Dashboard to your backend in minutes. Our template markup maps perfectly to standard JSON responses from Node.js, Python, or Ruby servers.</p>
+                    <ul class="list-unstyled mb-0 text-muted">
+                        <li class="mb-2 d-flex align-items-center"><i class="fas fa-check text-success me-3"></i> Ready-made Image Generation layout</li>
+                        <li class="mb-2 d-flex align-items-center"><i class="fas fa-check text-success me-3"></i> Setup for API Token Authentication</li>
+                        <li class="mb-2 d-flex align-items-center"><i class="fas fa-check text-success me-3"></i> Form validation pre-built</li>
+                        <li class="d-flex align-items-center"><i class="fas fa-check text-success me-3"></i> WebSocket / Server-sent event UI ready</li>
+                    </ul>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card card-premium overflow-hidden border-0 bg-dark text-light shadow-lg">
+                        <div class="bg-black bg-opacity-25 px-4 py-3 d-flex align-items-center gap-2 border-bottom border-secondary border-opacity-25">
+                            <div class="bg-danger rounded-circle" style="width: 12px; height: 12px;"></div>
+                            <div class="bg-warning rounded-circle" style="width: 12px; height: 12px;"></div>
+                            <div class="bg-success rounded-circle" style="width: 12px; height: 12px;"></div>
+                            <span class="ms-3 small text-muted font-monospace">POST /v1/images/generate</span>
+                        </div>
+                        <div class="p-4 overflow-auto">
+<pre class="mb-0" style="font-size: 0.9rem; font-family: 'Fira Code', monospace; color: #a5b4fc;"><code>fetch('https://api.yoursaas.com/v1/images/generate', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_API_KEY'
+  },
+  body: JSON.stringify({
+    "prompt": "A futuristic city skyline at dusk...",
+    "model": "elite-vision-xl",
+    "size": "1024x1024",
+    "style": "photorealistic",
+    "samples": 4
+  })
+})
+.then(response => response.json())
+.then(data => {
+  // Update the UI Dashboard Previews seamlessly
+  renderGeneratedAssets(data.image_urls);
+});</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer mt-0">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <a class="navbar-brand d-flex align-items-center text-white text-decoration-none mb-3" href="index.html">
+                        <img src="assets/img/logo/logo.png" alt="AI-SaaS Elite" class="nav-logo-img me-2" style="height: 40px;">
+                        <span class="brand-text" style="color: #fff;">AI-SaaS Elite</span>
+                    </a>
+                    <p class="mb-4 pe-lg-5">Next-generation artificial intelligence platform to automate your business workflow seamlessly.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Product</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="features.html">Features</a></li>
+                        <li><a href="requirements.html">Requirements</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="dashboard.html">Live Demo</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Company</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <h5>Legal</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="terms.html">Terms of Service</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center mt-4">
+                <p class="mb-0">© 2026 AI-SaaS Elite. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap & JS -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/main.js"></script>
+
+</body>
+</html>
+
+
